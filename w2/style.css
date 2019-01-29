@@ -1,0 +1,38 @@
+body {
+	/*background-color: #0b0c20;*/
+	background-color: white;
+}
+
+.row1 {
+	width: 300px;
+	position: absolute;
+	text-align: middle;
+	top: 10%;
+	left: 20%;
+}
+
+.one {
+	width: 140px;
+	margin-top: 140px;
+	margin-left: 120px;
+	margin-bottom: 800px;
+	transition: transform .3s;
+
+}
+
+.one:hover {
+	transform: scale(2.8);
+}
+
+.text {
+	position: absolute;
+	margin-left: 800px;
+	margin-top: 355px;
+	color: black;
+	letter-spacing: 0.5px;
+	font-family: avenir;
+}
+
+.content {
+	margin-bottom: 1086px;
+}
