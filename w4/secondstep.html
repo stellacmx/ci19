@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Step 2</title>
+</head>
+
+<style>
+
+	body {
+		background-color: #0e1120;
+	}
+
+	.instruction {
+		text-align: center;
+
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 80px 80px 80px 80px;
+		grid-template-rows: 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px;
+		justify-content: center;
+		margin-top: 10vh;
+		margin-bottom: 140px;
+	}
+
+	.one {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.two {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.three {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.three:hover {
+		transform: scale(1.1);
+		transition: 0.2s ease-in-out;
+	}
+	.four {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.five {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.six {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.seven {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.eight {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.nine {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.ten {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.eleven {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+	.twelve {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		text-align: center;
+	}
+
+@media (hover) and (min-width: 800px){
+
+	.grid {
+		display: grid;
+		grid-template-columns: 300px 300px 300px;
+		grid-template-rows: 80px 80px 80px 80px;
+		justify-content: center;
+		margin-top: 25vh;
+		margin-left: 100px;
+
+	}
+
+	.instruction {
+		text-align: center;
+		margin-bottom: 10px;
+
+	}
+
+	.one {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.two {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.three {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+	.four {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.five {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.six {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+	.seven {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.eight {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.nine {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+	.ten {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.eleven {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.twelve {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+
+}
+
+@media (hover) and (min-width: 1100px){
+
+	.grid {
+		display: grid;
+		grid-template-columns: 300px 300px 300px 300px;
+		grid-template-rows: 80px 80px 80px;
+		justify-content: center;
+		margin-top: 35vh;
+		margin-left: 100px;
+
+	}
+
+	.instruction {
+		text-align: center;
+		margin-bottom: 10px;
+
+	}
+
+	.one {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.two {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.three {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+	.four {
+		grid-column-start: 4;
+		grid-column-end: 5;
+		text-align: left;
+	}
+	.five {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.six {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.seven {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+	.eight {
+		grid-column-start: 4;
+		grid-column-end: 5;
+		text-align: left;
+	}
+	.nine {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+	.ten {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: left;
+	}
+	.eleven {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: left;
+	}
+	.twelve {
+		grid-column-start: 4;
+		grid-column-end: 5;
+		text-align: left;
+	}
+}
+
+</style>
+<body>
+
+	<div class="grid">
+	<div class="one"><img src="optionone.png" style="height: 30px;"></div>
+	<div class="two"><img src="optiontwo.png" style="height: 30px;"></div>
+	<div class="three"><a href="thirdstep.html"><img src="optionthree.png" style="height: 30px;"></a></div>
+	<div class="four"><img src="optionfour.png" style="height: 30px;"></div>
+	<div class="five"><img src="optionfive.png" style="height: 30px;"></div>
+	<div class="six"><img src="optionsix.png" style="height: 30px;"></div>
+	<div class="seven"><img src="optionseven.png" style="height: 30px;"></div>
+	<div class="eight"><img src="optioneight.png" style="height: 30px;"></div>
+	<div class="nine"><img src="optionnine.png" style="height: 30px;"></div>
+	<div class="ten"><img src="optionten.png" style="height: 30px;"></div>
+	<div class="eleven"><img src="optioneleven.png" style="height: 30px;"></div>
+	<div class="twelve"><img src="optiontwelve.png" style="height: 30px;"></div>
+	</div>
+
+	<div class="instruction"><img src="instructiontwo.png" style="height: 20px;"></div>
+
+</body>
+</html>
