@@ -1,0 +1,132 @@
+
+#cursor {
+  animation: blinker 0.8s step-end infinite;
+  color: #e54c00; 
+  /*you can change 'step-end' to 'linear' for smooth transition*/
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+
+
+	html, body{
+	margin: 0;
+	background-color: #eaeae5;
+}
+	body {
+       	font-family: 'Roboto Mono', monospace;
+        font-size: 35px;
+        line-height: 1em;
+        justify-content: center;
+        text-align: center;
+        color: #e54c00;
+    }
+
+.bigdiv {
+	justify-content: center;
+}
+
+#container {
+  border-radius: 20px;
+  width: 50vw;
+  padding: 20px;
+  word-wrap: break-word;
+  text-align: center;
+  bottom: 50px;
+  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: block;
+
+}
+
+.background {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	width: 1000px;
+	height: 500px;
+	text-align: center;
+	justify-content: center;
+	position: absolute;
+	left: 220px;
+	margin-top: 60px;
+
+
+}
+
+#face {
+	width: 500px;
+	z-index: 10;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.elements {
+	width: 100px;
+	z-index: 50;
+	position: absolute;
+
+}
+
+.instruction1 {
+	width:250px;
+	text-align: left;
+	font-size: 30px;
+	position: absolute;
+	letter-spacing: 0.5px;
+	line-height: 30px;
+	margin-top: 26px;
+	margin-left: 150px;
+
+}
+
+.instruction2 {
+	width:250px;
+	text-align: right;
+	font-size: 30px;
+	position: absolute;
+	letter-spacing: 0.5px;
+	line-height: 30px;
+	margin-top: 20px;
+	margin-left: 1050px;
+
+}
+
+.instruction3 {
+	width:230px;
+	text-align: left;
+	font-size: 30px;
+	position: absolute;
+	letter-spacing: 0.5px;
+	line-height: 30px;
+	margin-top: 612px;
+	margin-left: 150px;
+}
+
+.number1 {
+	width:250px;
+	text-align: right;
+	font-size: 30px;
+	position: absolute;
+	letter-spacing: 0.5px;
+	line-height: 30px;
+	margin-top: 605px;
+	margin-left: 1050px;
+}
+
+.number2 {
+	width:250px;
+	text-align: right;
+	font-size: 30px;
+	position: absolute;
+	letter-spacing: 0.5px;
+	line-height: 30px;
+	margin-top: 640px;
+	margin-left: 1013px;
+}
