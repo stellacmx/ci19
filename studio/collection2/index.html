@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> 101 Stars</title>
+	<title> 101 Stars </title>
 </head>
 <body>
+
+	<style>
+
+	body {
+		background-color: black;
+	}
+
+	</style>
 
 
 <script>
@@ -11,9 +19,21 @@
 	var url = "https://raw.githubusercontent.com/stellacmx/ci19/master/studio/collection2/mydata.json";
 	fetch(url)
 		.then(function(data){return data.json();})
-		.then(function(json){console.log(json);})
+		.then(function(json){sortData(json);})
 
-	
-</script>
+	function sortData(json) {
+		console.log(json);
+		var array = json
+
+		console.log(array);
+
+		var days = array.filter(function(ele){ return ele.orbit = "365";});
+		
+		console.log(days);
+
+	}
+
+
+		</script>
 </body>
 </html>
