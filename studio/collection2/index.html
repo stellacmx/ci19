@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	<div class="menu"><img src="101stars.png" style="position:fixed; height: 50px; top: 35px; left: 40px; z-index: 100;"></div>
+	<div class="menu" id="starsss"><img src="101stars.png" style="position:fixed; height: 50px; top: 35px; left: 40px; z-index: 100;"></div>
 	<div class="menu"><img src="planets.png" id="domplanet" style="position: fixed; height: 21px; top: 40px; right: 40px;  z-index: 100;"></div>
 	<div class="menu" id="domDwarf"><img src="dwarf.png" style="position: fixed; height: 21px; top: 75px; right: 40px;  z-index: 100;"></div>
 	<div class="menu" id="domsatellite"><img src="satellite.png" style="position: fixed; height: 21px; top: 110px; right: 40px;  z-index: 100;"></div>
@@ -14,7 +14,7 @@
 	<div class="menu" id="domPlutino"><img src="plutino.png" style="position: fixed; height: 20.5px; top: 215px; right: 40px;  z-index: 100;"></div>
 	<div class="menu" id="domCentaur"><img src="centaur.png" style="position: fixed; height: 20.5px; top: 250px; right: 40px;  z-index: 100;"></div>
 
-	<!-- <img src="sun.png" style="position: absolute; top: 0px; left: 0px; height: 785px;z-index: 40"> -->
+	<!-- <img src="sun.png" id="sunpng" style="position: absolute; top: 0px; left: 0px; height: 785px;z-index: 40"> -->
 
 	<div id="containers">
 		<div id="li1" style="z-index: 10;"></div>
@@ -52,10 +52,47 @@
 		<div id="li33" style="z-index: 10;"></div>
 		<div id="li34" style="z-index: 10;"></div>
 		<div id="li35" style="z-index: 10;"></div>
+
+
 	</div>
+		<div id="nameEl"></div>
+		<div id="typeEl"></div>
 
 
 	<style>
+	@font-face {
+	  	font-family: LCD;
+	  	src: url(LCD_Solid.ttf);
+	}
+
+
+	html,body{
+		overflow-y: hidden;
+
+	}
+
+	#nameEl {
+		color: white;
+		font-size: 3.2vh;
+		letter-spacing: 2px;
+		position: fixed;
+		bottom: 40px;
+		left: 40px;
+		font-family: "LCD";
+		z-index: 300;
+	}
+
+	#typeEl {
+		color: white;
+		font-size: 3.2vh;
+		letter-spacing: 2px;
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+		font-family: "LCD";
+		z-index: 300;
+	
+	}
 
 	#li33 {
 		width: 7050px;
@@ -326,8 +363,8 @@
 		overflow-y: hidden;
 		position: relative;
 		vertical-align: middle;
-
-	}
+		overflow-y: hidden;
+}
 
 
 
@@ -359,7 +396,7 @@
 
 
 	#Sun {
-		background-color: orange;
+		background-color: #ff7700;
 		width: 785px;
 		height: 785px;
 		border-radius: 800px;
@@ -368,9 +405,10 @@
 		margin-left: 0px;
 		margin-right: 40px;
 		position: relative;
+		/*transform: translate(-15%, 0);
+		left: -150px;
+		top: -100px;*/
 		z-index: 50;
-		/*-ms-transform: translate(-50%, -5%);
-  		transform: translate(-30%, -15%);*/
 	}
 
 	#Jupiter {
@@ -380,7 +418,7 @@
 		border-radius: 500px;
 		display: block;
 		float: left;
-		margin-left: 80px;
+		margin-left: 40px;
 		margin-right:40px;
 		position: relative;
 		top: 30vh;
@@ -455,7 +493,7 @@
 		display: block;
 		float: left;
 		margin-left: 40px;
-		margin-right:40px;
+		margin-right:30px;
 		position: relative;
 		top: 45vh;
 		z-index: 50;
@@ -1844,6 +1882,11 @@
 		z-index: 50;
 	}
 
+	.elements{
+		font-size: 0px;
+		z-index: 200;
+	}
+
 
 
 
@@ -1899,8 +1942,35 @@
 			// star.classList.add(json[i].types);
 			var containers = document.getElementById("containers");
 			containers.appendChild(star);
-			//star.innerHTML = json[i];
-			console.log(json[i]);
+			star.innerHTML = json[i].names;
+			// console.log(json[i]);
+			// var theName = json[i].names;
+			// console.log(theName);
+
+
+
+			//add event listener to star
+
+			star.addEventListener('mouseover', function(e){
+
+				var text = e.srcElement.innerHTML;
+				var nameEl = document.getElementById('nameEl');
+				nameEl.innerHTML = text;
+
+
+				var type = e.srcElement.classList[0];
+				var typeEl = document.getElementById('typeEl');
+				typeEl.innerHTML = type;
+			});
+			star.addEventListener('mouseleave', function(e){
+
+				var nameEl = document.getElementById('nameEl');
+				nameEl.innerHTML = "";
+
+
+				var typeEl = document.getElementById('typeEl');
+				typeEl.innerHTML = "";
+			});
 		}
 
 		//planets
@@ -1936,9 +2006,9 @@
 
 
 		//zooming in when scrolling
-		window.onscroll = function(event) {
+		window.onscroll = function(e) {
 		console.log(window);
-		var scale = 1 + (window.scrollX/4500);
+		var scale = 1 + (window.scrollX/2500);
 		console.log(scale)
 		// scale = 1
 		document.getElementById("containers").style.transform = "scale(" + scale + "," + scale +")"
@@ -1954,7 +2024,7 @@
 
 
 
-	//EVENT LISTENR FOR PLANTS
+	//EVENT LISTENR FOR PLANETS
 	var planetMenu = document.getElementById('domplanet'); 
 	planetMenu.addEventListener('click', function(e){
 		console.log(' I wanrt to see planets');
@@ -1967,6 +2037,7 @@
 			el.style.display = "none";
 		}
 
+
 		//get elements with planet class and set their style to display block 
 		var planetArray =  document.getElementsByClassName('planet'); 
 		for(var i = 0; i < planetArray.length; i++) {
@@ -1974,6 +2045,8 @@
 			el.style.display = "block";
 		}
 	});
+
+
 
 
 
@@ -1992,11 +2065,11 @@
 			el.style.display = "none";
 		}
 
-		// var dwarfArray =  document.getElementsByClassName('dwarf planet'); 
-		// for(var i = 0; i < dwarfArray.length; i++) {
-		// 	var el = dwarfArray[i];
-		// 	el.style.display = "block";
-		// }
+		var dwarfArray =  document.getElementsByClassName('dwarf'); 
+		for(var i = 0; i < dwarfArray.length; i++) {
+			var el = dwarfArray[i];
+			el.style.display = "block";
+		}
 	});
 
 
@@ -2122,6 +2195,27 @@
 			el.style.display = "block";
 		}
 	});
+
+
+
+
+	//GOING BACK TO HOMEPAGE
+
+	var homeMenu = document.getElementById('starsss'); 
+	homeMenu.addEventListener('click', function(e){
+		console.log(' I wanrt to see EVERYTHING');
+		//get all of the elemnts and change their style to display none
+
+		var allArray = document.getElementsByClassName('elements');	
+		for(var i = 0; i < allArray.length; i++) {
+			var el = allArray[i];
+			el.style.display = "block";
+		}
+
+	});
+
+	
+
 
 
 
