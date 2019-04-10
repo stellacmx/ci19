@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
 	<body link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
 
 	<style>
@@ -55,7 +56,6 @@
 		display: block;
 		background-color: orange;
 		float: left;
-		flex: 0 0 auto;
 		margin: 10px;
 	}
 
@@ -157,7 +157,7 @@
 
 	<div class="home"><a href="home.html">Home</a></div>
 
-	<div class="parents">
+	<div class="parents" id="parents">
 
 
 	<div class="planet"></div>
@@ -262,6 +262,18 @@
 	<div class="cubewano"></div>
 
 </div>
+
+<script>
+
+window.onscroll = function(event) {
+	console.log(window);
+	var scale = 1 + (window.scrollX/10100);
+	console.log(scale)
+	// scale = 1
+	document.getElementById("parents").style.transform = "scale(" + scale + "," + scale +")"
+};
+
+</script>
 
 
 
