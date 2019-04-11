@@ -14,8 +14,6 @@
 	<div class="menu" id="domPlutino"><img src="plutino.png" style="position: fixed; height: 20.5px; top: 215px; right: 40px;  z-index: 100;"></div>
 	<div class="menu" id="domCentaur"><img src="centaur.png" style="position: fixed; height: 20.5px; top: 250px; right: 40px;  z-index: 100;"></div>
 
-	<!-- <img src="sun.png" id="sunpng" style="position: absolute; top: 0px; left: 0px; height: 785px;z-index: 40"> -->
-
 	<div id="containers">
 		<div id="li1" style="z-index: 10;"></div>
 		<div id="li2" style="z-index: 10;"></div>
@@ -52,11 +50,7 @@
 		<div id="li33" style="z-index: 10;"></div>
 		<div id="li34" style="z-index: 10;"></div>
 		<div id="li35" style="z-index: 10;"></div>
-
-
 	</div>
-		<div id="nameEl"></div>
-		<div id="typeEl"></div>
 
 
 	<style>
@@ -84,13 +78,6 @@
 		vertical-align: middle;
 		cursor: url(earth.png), pointer);
 	}
-
-	#sunpng:hover {
-		transform: scale(1,1);
-	}
-
-
-
 
 	#nameEl {
 		color: white;
@@ -380,11 +367,7 @@
 	}
 
 
-
-
-
-
-body {
+	body {
 		margin: 0px;
 		background-color: black;
 		display: inline-block;
@@ -1900,30 +1883,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*#very-long{
-		height:10px;
-		width: 10px;
-		left: 50000px;
-
-		display:block;
-		z-index: -2;
-		position: absolute;
-	}*/
-
 	</style>
 
 
@@ -1992,6 +1951,8 @@ body {
 				var typeEl = document.getElementById('typeEl');
 				typeEl.innerHTML = type;
 			});
+
+
 			star.addEventListener('mouseleave', function(e){
 
 				var nameEl = document.getElementById('nameEl');
@@ -2244,28 +2205,8 @@ body {
 
 	});
 
-	
-
-
-
-
-
-
-	// function test(){
-	// 	for ( var i =0; i < plan.length; i += 1){
-	// 		var planets = document.getElementById(plan[i].names);
-	// 		planets.style.display = "none";
-	
-	// 	}
-
-	// 	// for(var i = 0; i < roun.length; i+=1){
-	// 	// 	var planets = createElement("div")
-	// 	// }
-	// }
-
-
-
-
-		</script>
+</script>
 </body>
 </html>
+
+
