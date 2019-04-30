@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script>
+
+		var url = 'https://newsapi.org/v2/top-headlines?' +
+          'country=us&' +
+          'apiKey=1fa2cfba70fa49988d8ecb79badcc0e9';
+		var req = new Request(url);
+		fetch(req)
+    		.then(function(response) {
+        	console.log(response.json());
+    	})
+
+
+    	
+
+	</script>
+
+</body>
+</html>
