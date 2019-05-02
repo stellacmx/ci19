@@ -1,25 +1,174 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title>News</title>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<style>
+html, body, #container{
+  width: 100vw;
+  height: 100vh;
+  margin:0;
+  cursor: url(cursor.png), auto;
+}
+  body{
+    overflow: hidden;
+  }
+  div{
+    margin: 0;
+    font-family: Geneva, Helvetica, sans-serif;
+  }
+</style>
+
+
 </head>
 <body>
+    
+    <div id="container"></div>
+    <img src="eye.png" id="eye">
 
-	<script>
+<script>
 
-		var url = 'https://newsapi.org/v2/top-headlines?' +
+  
+
+    var url = 'https://newsapi.org/v2/top-headlines?' +
           'country=us&' +
           'apiKey=1fa2cfba70fa49988d8ecb79badcc0e9';
-		var req = new Request(url);
-		fetch(req)
-    		.then(function(response) {
-        	console.log(response.json());
-    	})
 
 
-    	
+    // var req = new Request(url);
+    // fetch(req)
+    //    .then(function(response) {
+    //     console.log(response.json());
+    // })
 
-	</script>
+    fetch(url)
+      .then(function(response){return response.json();})
+      .then(function(json){news(json);})
+
+    function news(data){
+
+      console.log(data);
+
+      console.log(data.articles[1]);
+
+      //RANDOM ARTICLE
+      var whichIndex = Math.floor(Math.random()*data.articles.length);
+      console.log(data.articles[whichIndex]);
+
+      var news = document.createElement("div");
+      news.innerHTML = data.articles[whichIndex]["title"];
+      news.setAttribute("id", "bigdiv");
+      // document.body.appendChild(news);
+
+
+      
+      var box = document.getElementById("container");
+
+
+      //DELETING THE SOURCE NAME
+      var str = news.innerHTML;
+      var res = str.split(" - ");
+      console.log(res);
+      news.innerHTML= res[0];
+
+      var words = news.innerHTML;
+      var indi = words.split(" ");
+      console.log(indi);
+
+      for(var i =0; i< indi.length; i+=1){
+        var hey = document.createElement("div");
+        var id =indi[i]
+        hey.innerHTML= indi[i];
+        hey.setAttribute("id",id);
+
+
+        hey.style.position = "absolute"
+        hey.style.fontSize = 15 + "vh";
+        // hey.style.fontFamily = "Geneva";
+        hey.style.lineHeight = 130 + "px";
+        // hey.style.margin = 17 + "px";
+        hey.style.cursor = "url('move.png')";
+
+
+        box.appendChild(hey);
+        let rect = hey.getBoundingClientRect();
+        console.log(rect);
+        let boxRect = box.getBoundingClientRect();
+
+        hey.style.top = Math.random()*(boxRect.height - rect.height)+"px";
+        hey.style.left = Math.random()*(boxRect.width - rect.width)+"px";
+      }
+
+
+      var eye = document.getElementById("eye");
+      eye.onmousedown = function(){
+        box.appendChild(news);
+        hey.style.display = "None";
+      }
+
+      eye.onmouseup = function(){
+        news.style.display = "None";
+      }
+
+
+
+      $( function() {
+        $("div").draggable();
+      } );
+
+
+
+      // var indi = document.createElement("div");
+      // indi.setAttribute("id", "indi");
+      // indi.innerHTML = data.articles[1]["title"];
+      // document.body.appendChild(indi);
+
+      // console.log(indi[5]);
+      
+      
+      //MAKING THE TITLE SHOW ON PAGE
+     
+
+
+      news.style.fontSize = 15 + "vh";
+      news.style.fontFamily = "Geneva";
+      news.style.lineHeight = 130 + "px";
+      news.style.margin = 17 + "px"
+
+    }
+
+
+
+</script>
+
+
+<style>
+
+    img{
+      width: 100px;
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+    }
+
+    img:hover{
+      transform: scale(1.1);
+    }
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+    }
+
+
+</style>
+
 
 </body>
 </html>
+
+
