@@ -7,19 +7,67 @@
 
 
 <style>
-html, body, #container{
+
+  html, body, #container{
   width: 100vw;
   height: 100vh;
   margin:0;
   cursor: url(cursor.png), auto;
 }
   body{
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
   div{
     margin: 0;
-    font-family: Geneva, Helvetica, sans-serif;
+    /*cursor: move;*/
+  /*    background-color: white;*/
   }
+
+  @font-face {
+    font-family: Agane;
+    src: url(Agane.ttf);
+  }
+
+  @font-face {
+    font-family: Mono;
+    src: url(Andale Mono.ttf);
+  }
+
+  @font-face {
+    font-family: Ayuthaya;
+    src: url(Ayuthaya.ttf);
+  }
+
+  @font-face {
+    font-family: Baskerville;
+    src: url(Baskerville.ttc);
+  }
+
+  @font-face {
+    font-family: Bodoni;
+    src: url(Bodoni.ttc);
+  }
+
+  @font-face {
+    font-family: Gill;
+    src: url(GillSans.ttc);
+  }
+
+  @font-face {
+    font-family: Janson;
+    src: url(Janson.ttf);
+  }
+
+  @font-face {
+    font-family: Neoteric;
+    src: url(Neoteric.ttf);
+  }
+
+  @font-face {
+    font-family: Geneva;
+    src: url(Geneva.dfont);
+  }
+
 </style>
 
 
@@ -28,6 +76,8 @@ html, body, #container{
     
     <div id="container"></div>
     <img src="eye.png" id="eye">
+
+    <a href="javascript:history.go(0)"><img src="arrow.png" id="arrow"></A>
 
 <script>
 
@@ -52,72 +102,171 @@ html, body, #container{
 
       console.log(data);
 
-      console.log(data.articles[1]);
+      // console.log(data.articles[1]);
 
       //RANDOM ARTICLE
       var whichIndex = Math.floor(Math.random()*data.articles.length);
       console.log(data.articles[whichIndex]);
+
 
       var news = document.createElement("div");
       news.innerHTML = data.articles[whichIndex]["title"];
       news.setAttribute("id", "bigdiv");
       // document.body.appendChild(news);
 
+      var order = document.createElement("div");
+      order.innerHTML = data.articles[whichIndex]["title"];
+      order.setAttribute("id", "bigdiv");
+      // document.body.appendChild(news);
+
+
 
       
       var box = document.getElementById("container");
 
 
+
+
       //DELETING THE SOURCE NAME
+
       var str = news.innerHTML;
       var res = str.split(" - ");
       console.log(res);
       news.innerHTML= res[0];
 
+
+      var str = order.innerHTML;
+      var res = str.split(" - ");
+      console.log(res);
+      order.innerHTML= res[0];
+
+
+
+
+
+      //SPLITTING THE WORDS
+
       var words = news.innerHTML;
       var indi = words.split(" ");
-      console.log(indi);
+
+      console.log("original: " + indi);
+
+      shuffle(indi);
+
+      console.log("shuffled: " + indi);
+
+
+
+
+
+      //SHUFFLING THE WORDS
+
+      function shuffle(array) {
+
+        var currentIndex = indi.length;
+        var temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = indi[currentIndex];
+        indi[currentIndex] = indi[randomIndex];
+        indi[randomIndex] = temporaryValue;
+          }
+
+        return array;
+
+       
+
+        };
+
+
+      
+
+        var fontnames = ["Agane", "Mono", "Ayuthaya", "Baskerville", "Bodoni", "Geneva", "GillSans", "Janson"]
+        var random = Math.floor(Math.random()*fontnames.length);
+
 
       for(var i =0; i< indi.length; i+=1){
         var hey = document.createElement("div");
         var id =indi[i]
         hey.innerHTML= indi[i];
         hey.setAttribute("id",id);
+        hey.className = "words";
+
+        var news = document.createElement("div");
+        var id =indi[i]
+        news.innerHTML= indi[i];
+        news.setAttribute("id",id);
+        news.className = "words";
+
+        
 
 
-        hey.style.position = "absolute"
-        hey.style.fontSize = 15 + "vh";
-        // hey.style.fontFamily = "Geneva";
-        hey.style.lineHeight = 130 + "px";
-        // hey.style.margin = 17 + "px";
-        hey.style.cursor = "url('move.png')";
 
 
-        box.appendChild(hey);
+        news.style.fontSize = 18 + "vh";
+        news.style.fontFamily = fontnames[random];
+        news.style.lineHeight = 100 + "px";
+        news.style.padding = 15 + "px";
+        news.style.float = "left"; 
+        news.style.top = 10 + "px"; 
+
+        order.style.fontSize = 18 + "vh";
+        order.style.fontFamily = fontnames[random];
+        order.style.lineHeight = 120 + "px";
+        order.style.padding= 20 + "px";
+        order.style.float = "left"; 
+
+
+
+
+
+
+        box.appendChild(news);
+
+
         let rect = hey.getBoundingClientRect();
-        console.log(rect);
+        // console.log(rect);
         let boxRect = box.getBoundingClientRect();
 
         hey.style.top = Math.random()*(boxRect.height - rect.height)+"px";
         hey.style.left = Math.random()*(boxRect.width - rect.width)+"px";
+
+
+
+      }
+
+      var allwords = document.getElementsByClassName("words");
+      for(var i=0; i<allwords.length; i+=1){
+        allwords[i].style.marginLeft = Math.random()*300 + "px";
+        allwords[i].style.marginRight = Math.random()*100 + "px";
       }
 
 
-      var eye = document.getElementById("eye");
+      // var eye = document.getElementById("eye"); 
+      // eye.setAttribute("value","show");
+      // var currentvalue = document.getElementById("eye").value;
+
       eye.onmousedown = function(){
-        box.appendChild(news);
-        hey.style.display = "None";
+        box.appendChild(order);
       }
 
       eye.onmouseup = function(){
-        news.style.display = "None";
+        order.style.display = "None";
       }
 
 
 
       $( function() {
-        $("div").draggable();
+        $(".words").draggable();
       } );
+
+      
 
 
 
@@ -133,10 +282,8 @@ html, body, #container{
      
 
 
-      news.style.fontSize = 15 + "vh";
-      news.style.fontFamily = "Geneva";
-      news.style.lineHeight = 130 + "px";
-      news.style.margin = 17 + "px"
+
+
 
     }
 
@@ -147,23 +294,45 @@ html, body, #container{
 
 <style>
 
-    img{
+    #eye {
       width: 100px;
       position: fixed;
       right: 30px;
       bottom: 30px;
+      cursor: url(cursor.png), auto;
     }
 
-    img:hover{
+    #eye:hover{
+      transform: scale(1.1);
+    }
+
+    #arrow {
+      width: 100px;
+      position: fixed;
+      right: 30px;
+      bottom: 100px;
+      cursor: url(cursor.png), auto;
+    }
+
+    #arrow:hover{
       transform: scale(1.1);
     }
 
     #container {
       width: 100vw;
       height: 100vh;
-      position: fixed;
+      /*position: fixed;*/
     }
 
+    #bigdiv {
+      position:absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      margin: 0;
+    }
 
 </style>
 
